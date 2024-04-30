@@ -7,6 +7,7 @@ use App\Mail\ProductBackInStock;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Subscription;
 use App\Models\Shop;
 use Exception;
 use Carbon\Carbon;
@@ -25,17 +26,17 @@ class SendMailController extends Controller
             foreach($variants as $variant) {
                 if ($variant['stockLevel'] > 0) {
     
-                    $customers = Customer::where([
+                    $subscriptions = Subscription::where([
                         'variant_id' => $variant['id'],
                         'notification' => 0
                     ])->get();
     
-                    if ($customers) {
+                    if ($subscriptions) {
                         $product = $api->products->get($variant['product']['resource']['id']);
-                        foreach ($customers as $customer) {
-                            Mail::to($customer->email)->send(new ProductBackInStock($customer, $variant, $product));
-                            $customer->notification = 1;
-                            $customer->save();
+                        foreach ($subscriptions as $subscription) {
+                            Mail::to($subscription->email)->send(new ProductBackInStock($subscription, $variant, $product));
+                            $subscription->notification = 1;
+                            $subscription->save();
                         }
                     }
     

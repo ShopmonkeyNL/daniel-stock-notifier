@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Validator;
 use App\Models\Customer; 
+use App\Models\Subscription;
 
 class SubscriptionController extends Controller
 {
@@ -18,7 +19,7 @@ class SubscriptionController extends Controller
         }
 
 
-        $existingSubscription = Customer::where('email', $request->input('email'))
+        $existingSubscription = Subscription::where('email', $request->input('email'))
                                      ->where('variant_id', $request->input('variantId'))
                                      ->where('notification', 0)
                                      ->exists();
@@ -32,15 +33,15 @@ class SubscriptionController extends Controller
             
 
         // return response()->json([$request->input('name'), $request->input('email'), $request->input('variantId'), $request->input('shopId')], 201);
-        $customer = new Customer();
-        $customer->name = $request->input('name');
-        $customer->email = $request->input('email');
-        $customer->variant_id = $request->input('variantId');
-        $customer->shop_id = $request->input('shopId');
-        $customer->notification = $request->input('notification');
+        $subscrition = new Subscription();
+        $subscrition->name = $request->input('name');
+        $subscrition->email = $request->input('email');
+        $subscrition->variant_id = $request->input('variantId');
+        $subscrition->shop_id = $request->input('shopId');
+        $subscrition->notification = $request->input('notification');
 
 
-        $customer->save();
+        $subscrition->save();
         
         return response()->json(['message' => 'Subscription opgeslagen'], 201);
         
