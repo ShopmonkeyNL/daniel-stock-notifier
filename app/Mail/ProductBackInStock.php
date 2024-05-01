@@ -43,7 +43,7 @@ class ProductBackInStock extends Mailable
     public function content(): Content
     {   
         return new Content(
-            view: 'customer',
+            view: 'mail',
         );
     }
 
