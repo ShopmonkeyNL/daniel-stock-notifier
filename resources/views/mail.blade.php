@@ -105,7 +105,7 @@
                     </tr>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">We weten hoe teleurstellend het kan zijn wanneer je iets wilt kopen en het niet beschikbaar is. Daarom hebben we ons ingespannen om ervoor te zorgen dat je niet langer hoeft te wachten. Jouw geduld wordt beloond, want <a href="{{ $product['url'] }}" target="_blank">{{ $product['title'] }}</a> is nu weer volop op voorraad en wacht erop om naar jou toe te komen.</div>
+                        <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;">We weten hoe teleurstellend het kan zijn wanneer je iets wilt kopen en het niet beschikbaar is. Daarom hebben we ons ingespannen om ervoor te zorgen dat je niet langer hoeft te wachten. Jouw geduld wordt beloond, want <a href="https://daniel-van-der-heijden.webshopapp.com/nl/{{ $product['url'] }}" target="_blank">{{ $product['title'] }}</a> is nu weer volop op voorraad en wacht erop om naar jou toe te komen.</div>
                       </td>
                     </tr>
                     <tr>
